@@ -1,15 +1,31 @@
-# tap-pocket
+# `tap-pocket`
 
-`tap-pocket` is a Singer tap for Pocket.
+Pocket tap class.
 
-Built with the [Meltano Tap SDK](https://sdk.meltano.com) for Singer Taps.
+Built with the [Meltano SDK](https://sdk.meltano.com) for Singer Taps and Targets.
+
+## Capabilities
+
+* `catalog`
+* `state`
+* `discover`
+* `about`
+* `stream-maps`
+
+## Settings
+
+| Setting     | Required | Default | Description |
+|:------------|:--------:|:-------:|:------------|
+| consumer_key| True     | None    | Pocket application key |
+| access_token| True     | None    | Pocket user access token |
+| start_date  | False    | None    | The earliest record datetime to sync as a UNIX timestamp |
+
+A full list of supported settings and capabilities is available by running: `tap-pocket --about`
 
 ## Installation
 
-- [ ] `Developer TODO:` Update the below as needed to correctly describe the install procedure. For instance, if you do not have a PyPi repo, or if you want users to directly install from your git repo, you can modify this step as appropriate.
-
 ```bash
-pipx install tap-pocket
+pipx install git+https://github.com/edgarrmondragon/tap-pocket.git
 ```
 
 ## Configuration
