@@ -118,6 +118,15 @@ class Items(PocketStream):
         context: Optional[dict],
         next_page_token: Optional[Any],
     ) -> Optional[dict]:
+        """Construct and return request body for HTTP request.
+
+        Args:
+            context: Stream context.
+            next_page_token: Pagination token to retrieve next page.
+
+        Returns:
+            Dictionary to pass as JSON body in the HTTP request.
+        """
         return {
             "consumer_key": self.config["consumer_key"],
             "access_token": self.config["access_token"],
@@ -126,6 +135,15 @@ class Items(PocketStream):
         }
 
     def post_process(self, row: dict, context: Optional[dict] = None) -> Optional[dict]:
+        """Clean and massage the record.
+
+        Args:
+            row: Stream record.
+            context: Stream context. Defaults to None.
+
+        Returns:
+            Processed record.
+        """
         row["tags"] = list(row.get("tags", {}).values())
         row["authors"] = list(row.get("authors", {}).values())
         row["images"] = list(row.get("images", {}).values())

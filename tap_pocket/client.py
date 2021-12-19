@@ -11,7 +11,11 @@ class PocketStream(RESTStream):
 
     @property
     def http_headers(self) -> dict:
-        """Return the http headers needed."""
+        """Return the http headers needed.
+
+        Returns:
+            A dictionary of HTTP headers.
+        """
         headers = {
             "Content-Type": "application/json; charset=UTF-8",
             "X-Accept": "application/json",

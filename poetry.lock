@@ -157,6 +157,14 @@ ssh = ["bcrypt (>=3.1.5)"]
 test = ["pytest (>=6.0)", "pytest-cov", "pytest-subtests", "pytest-xdist", "pretend", "iso8601", "pytz", "hypothesis (>=1.11.4,!=3.79.2)"]
 
 [[package]]
+name = "darglint"
+version = "1.8.1"
+description = "A utility for ensuring Google-style docstrings stay up to date with the source code."
+category = "dev"
+optional = false
+python-versions = ">=3.6,<4.0"
+
+[[package]]
 name = "dataclasses"
 version = "0.8"
 description = "A backport of the dataclasses module for Python 3.6"
@@ -205,6 +213,30 @@ importlib-metadata = {version = "*", markers = "python_version < \"3.8\""}
 mccabe = ">=0.6.0,<0.7.0"
 pycodestyle = ">=2.7.0,<2.8.0"
 pyflakes = ">=2.3.0,<2.4.0"
+
+[[package]]
+name = "flake8-annotations"
+version = "2.7.0"
+description = "Flake8 Type Annotation Checks"
+category = "dev"
+optional = false
+python-versions = ">=3.6.2,<4.0.0"
+
+[package.dependencies]
+flake8 = ">=3.7,<5.0"
+typed-ast = {version = ">=1.4,<2.0", markers = "python_version < \"3.8\""}
+
+[[package]]
+name = "flake8-docstrings"
+version = "1.6.0"
+description = "Extension for flake8 which uses pydocstyle to check docstrings"
+category = "dev"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+flake8 = ">=3"
+pydocstyle = ">=2.1"
 
 [[package]]
 name = "idna"
@@ -750,7 +782,7 @@ testing = ["pytest (>=4.6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytes
 [metadata]
 lock-version = "1.1"
 python-versions = "<3.11,>=3.6.2"
-content-hash = "6ad1dadd3b9d98aef9f3bf831f15fffed67cb3f8512a9880edda40da9a623fca"
+content-hash = "05e1c3e217089721678be2e6550e88b1be584518faf3b76a0c2115de80005e48"
 
 [metadata.files]
 atomicwrites = [
@@ -867,6 +899,10 @@ cryptography = [
     {file = "cryptography-3.4.8-pp37-pypy37_pp73-win_amd64.whl", hash = "sha256:cd65b60cfe004790c795cc35f272e41a3df4631e2fb6b35aa7ac6ef2859d554e"},
     {file = "cryptography-3.4.8.tar.gz", hash = "sha256:94cc5ed4ceaefcbe5bf38c8fba6a21fc1d365bb8fb826ea1688e3370b2e24a1c"},
 ]
+darglint = [
+    {file = "darglint-1.8.1-py3-none-any.whl", hash = "sha256:5ae11c259c17b0701618a20c3da343a3eb98b3bc4b5a83d31cdd94f5ebdced8d"},
+    {file = "darglint-1.8.1.tar.gz", hash = "sha256:080d5106df149b199822e7ee7deb9c012b49891538f14a11be681044f0bb20da"},
+]
 dataclasses = [
     {file = "dataclasses-0.8-py3-none-any.whl", hash = "sha256:0201d89fa866f68c8ebd9d08ee6ff50c0b255f8ec63a71c16fda7af82bb887bf"},
     {file = "dataclasses-0.8.tar.gz", hash = "sha256:8479067f342acf957dc82ec415d355ab5edb7e7646b90dc6e2fd1d96ad084c97"},
@@ -886,6 +922,14 @@ filelock = [
 flake8 = [
     {file = "flake8-3.9.2-py2.py3-none-any.whl", hash = "sha256:bf8fd333346d844f616e8d47905ef3a3384edae6b4e9beb0c5101e25e3110907"},
     {file = "flake8-3.9.2.tar.gz", hash = "sha256:07528381786f2a6237b061f6e96610a4167b226cb926e2aa2b6b1d78057c576b"},
+]
+flake8-annotations = [
+    {file = "flake8-annotations-2.7.0.tar.gz", hash = "sha256:52e53c05b0c06cac1c2dec192ea2c36e85081238add3bd99421d56f574b9479b"},
+    {file = "flake8_annotations-2.7.0-py3-none-any.whl", hash = "sha256:3edfbbfb58e404868834fe6ec3eaf49c139f64f0701259f707d043185545151e"},
+]
+flake8-docstrings = [
+    {file = "flake8-docstrings-1.6.0.tar.gz", hash = "sha256:9fe7c6a306064af8e62a055c2f61e9eb1da55f84bb39caef2b84ce53708ac34b"},
+    {file = "flake8_docstrings-1.6.0-py2.py3-none-any.whl", hash = "sha256:99cac583d6c7e32dd28bbfbef120a7c0d1b6dde4adb5a9fd441c4227a6534bde"},
 ]
 idna = [
     {file = "idna-3.3-py3-none-any.whl", hash = "sha256:84d9dd047ffa80596e0f246e2eab0b391788b0503584e8945f2368256d2735ff"},

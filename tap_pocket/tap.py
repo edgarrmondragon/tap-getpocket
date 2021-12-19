@@ -37,5 +37,9 @@ class TapPocket(Tap):
     ).to_dict()
 
     def discover_streams(self) -> List[Stream]:
-        """Return a list of discovered streams."""
+        """Return a list of discovered streams.
+
+        Returns:
+            A list of all the streams discovered for this tap.
+        """
         return [stream_class(tap=self) for stream_class in STREAM_TYPES]

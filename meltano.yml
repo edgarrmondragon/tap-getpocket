@@ -1,0 +1,22 @@
+version: 1
+send_anonymous_usage_stats: true
+project_id: tap-pocket
+plugins:
+  extractors:
+  - name: tap-pocket
+    namespace: tap_pocket
+    executable: ./tap-pocket.sh
+    capabilities:
+    # TODO: implement incremental replication
+    # - state
+    - catalog
+    - discover
+    settings:
+    - name: consumer_key
+      kind: password
+    - name: access_token
+      kind: password
+  loaders:
+  - name: target-jsonl
+    variant: andyh1203
+    pip_url: target-jsonl
