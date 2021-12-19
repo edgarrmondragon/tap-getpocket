@@ -1,5 +1,7 @@
 """REST client handling, including PocketStream base class."""
 
+from typing import Dict
+
 from singer_sdk.streams import RESTStream
 
 
@@ -10,7 +12,7 @@ class PocketStream(RESTStream):
     records_jsonpath = "$.list.*"
 
     @property
-    def http_headers(self) -> dict:
+    def http_headers(self) -> Dict[str, str]:
         """Return the http headers needed.
 
         Returns:
@@ -21,6 +23,6 @@ class PocketStream(RESTStream):
             "X-Accept": "application/json",
         }
         if "user_agent" in self.config:
-            headers["User-Agent"] = self.config.get("user_agent")
+            headers["User-Agent"] = self.config["user_agent"]
 
         return headers
