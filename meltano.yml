@@ -7,8 +7,7 @@ plugins:
     namespace: tap_pocket
     executable: ./tap-pocket.sh
     capabilities:
-    # TODO: implement incremental replication
-    # - state
+    - state
     - catalog
     - discover
     settings:

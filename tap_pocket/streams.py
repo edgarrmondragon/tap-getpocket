@@ -43,6 +43,7 @@ class Items(PocketStream):
         th.Property("word_count", Integer),
         th.Property("lang", String),
         th.Property("time_to_read", Integer),
+        th.Property("amp_url", String),
         th.Property("top_image_url", String),
         th.Property(
             "tags",
@@ -127,9 +128,12 @@ class Items(PocketStream):
         Returns:
             Dictionary to pass as JSON body in the HTTP request.
         """
+        start_timestamp = self.get_starting_replication_key_value(context)
+
         return {
             "consumer_key": self.config["consumer_key"],
             "access_token": self.config["access_token"],
+            "since": start_timestamp,
             "sort": "oldest",
             "detailType": "complete",
         }

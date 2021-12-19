@@ -30,9 +30,9 @@ class TapPocket(Tap):
             description="Pocket user access token",
         ),
         th.Property(
-            "start_timestamp",
+            "start_date",
             th.StringType,
-            description="The earliest record timestamp to sync",
+            description="The earliest record datetime to sync as a UNIX timestamp",
         ),
     ).to_dict()
 
