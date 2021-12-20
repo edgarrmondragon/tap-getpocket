@@ -1,11 +1,11 @@
 version: 1
-send_anonymous_usage_stats: true
-project_id: tap-pocket
+send_anonymous_usage_stats: false
+project_id: ce7f7437-9a18-48e1-89de-7077b30d33cc
 plugins:
   extractors:
   - name: tap-pocket
     namespace: tap_pocket
-    executable: ./tap-pocket.sh
+    pip_url: -e .
     capabilities:
     - state
     - catalog
