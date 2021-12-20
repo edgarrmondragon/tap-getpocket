@@ -60,4 +60,5 @@ jobs:
         TAP_POCKET_CONSUMER_KEY: ${{ secrets.TAP_POCKET_CONSUMER_KEY }}
         TAP_POCKET_ACCESS_TOKEN: ${{ secrets.TAP_POCKET_ACCESS_TOKEN }}
       run: |
+        poetry install
         poetry run pytest --capture=no
