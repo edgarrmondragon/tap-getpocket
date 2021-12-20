@@ -1,5 +1,7 @@
 # `tap-pocket`
 
+[![Test](https://github.com/edgarrmondragon/tap-pocket/actions/workflows/ci_workflow.yml/badge.svg)](https://github.com/edgarrmondragon/tap-pocket/actions/workflows/ci_workflow.yml)
+
 Pocket tap class.
 
 Built with the [Meltano SDK](https://sdk.meltano.com) for Singer Taps and Targets.
