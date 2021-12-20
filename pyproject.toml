@@ -31,6 +31,9 @@ profile = "black"
 multi_line_output = 3 # Vertical Hanging Indent
 src_paths = "tap_pocket"
 
+[tool.pytest.ini_options]
+addopts = "-vvv"
+
 [build-system]
 requires = ["poetry-core @ git+https://github.com/python-poetry/poetry-core.git@master"]
 build-backend = "poetry.core.masonry.api"
