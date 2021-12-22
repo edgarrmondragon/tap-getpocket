@@ -2,12 +2,16 @@
 name = "tap-pocket"
 version = "0.0.1"
 description = "`tap-pocket` is a Singer tap for Pocket, built with the Meltano SDK for Singer Taps."
-authors = ["Edgar Ramírez-Mondragón"]
+authors = ["Edgar Ramírez-Mondragón <edgarrm358@gmail.com>"]
 keywords = [
     "ELT",
     "Pocket",
 ]
 license = "Apache 2.0"
+readme = "README.md"
+homepage = "https://github.com/edgarrmondragon/tap-pocket"
+repository = "https://github.com/edgarrmondragon/tap-pocket"
+documentation = "https://github.com/edgarrmondragon/tap-pocket#readme"
 
 [tool.poetry.dependencies]
 python = "<3.11,>=3.6.2"
