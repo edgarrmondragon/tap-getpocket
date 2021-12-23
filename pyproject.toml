@@ -20,7 +20,7 @@ singer-sdk = "==0.3.17"
 [tool.poetry.dev-dependencies]
 pytest = "^6.2.5"
 black = "^21.9b0"
-mypy = "^0.921"
+mypy = "^0.930"
 types-requests = "^2.26.1"
 isort = "^5.10.1"
 
