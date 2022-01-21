@@ -15,7 +15,7 @@ documentation = "https://github.com/edgarrmondragon/tap-pocket#readme"
 
 [tool.poetry.dependencies]
 python = "<3.11,>=3.6.2"
-singer-sdk = "==0.3.18"
+singer-sdk = "==0.4.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.2.5"
