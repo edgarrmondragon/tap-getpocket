@@ -129,6 +129,7 @@ class Items(PocketStream):
             Dictionary to pass as JSON body in the HTTP request.
         """
         start_timestamp = self.get_starting_replication_key_value(context)
+        self.logger.debug("Initial timestamp: %s", start_timestamp)
 
         return {
             "consumer_key": self.config["consumer_key"],
