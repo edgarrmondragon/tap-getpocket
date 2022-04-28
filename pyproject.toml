@@ -21,7 +21,7 @@ singer-sdk = "==0.4.6"
 pytest = "^7.1.2"
 black = "^22.3"
 mypy = "^0.942"
-types-requests = "^2.27.22"
+types-requests = "^2.27.24"
 isort = "^5.10.1"
 
 # Flake8
