@@ -15,13 +15,13 @@ documentation = "https://github.com/edgarrmondragon/tap-pocket#readme"
 
 [tool.poetry.dependencies]
 python = "<3.11,>=3.7.1"
-singer-sdk = "==0.4.6"
+singer-sdk = "==0.4.7"
 
 [tool.poetry.dev-dependencies]
 pytest = "^7.1.2"
 black = "^22.3"
-mypy = "^0.942"
-types-requests = "^2.27.22"
+mypy = "^0.950"
+types-requests = "^2.27.24"
 isort = "^5.10.1"
 
 # Flake8
