@@ -137,6 +137,7 @@ class Items(PocketStream):
             "since": start_timestamp,
             "sort": "oldest",
             "detailType": "complete",
+            "state": "all",
         }
 
     def post_process(self, row: dict, context: Optional[dict] = None) -> Optional[dict]:
@@ -149,6 +150,10 @@ class Items(PocketStream):
         Returns:
             Processed record.
         """
+        # Deleted items
+        if row["status"] == "2":
+            return None
+
         row["tags"] = list(row.get("tags", {}).values())
         row["authors"] = list(row.get("authors", {}).values())
         row["images"] = list(row.get("images", {}).values())
