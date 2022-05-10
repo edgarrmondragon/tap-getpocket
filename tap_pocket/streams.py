@@ -28,10 +28,10 @@ class Items(PocketStream):
         th.Property("given_title", String),
         th.Property("favorite", String),
         th.Property("status", String),
-        th.Property("time_added", String),
-        th.Property("time_updated", String),
-        th.Property("time_read", String),
-        th.Property("time_favorited", String),
+        th.Property("time_added", Integer),
+        th.Property("time_updated", Integer),
+        th.Property("time_read", Integer),
+        th.Property("time_favorited", Integer),
         th.Property("sort_id", Integer),
         th.Property("resolved_title", String),
         th.Property("resolved_url", String),
@@ -155,5 +155,8 @@ class Items(PocketStream):
         row["videos"] = list(row.get("videos", {}).values())
 
         row["word_count"] = int(row["word_count"])
+
+        for key in {"time_added", "time_updated", "time_read", "time_favorited"}:
+            row[key] = int(row[key])
 
         return row
