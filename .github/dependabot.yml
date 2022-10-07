@@ -5,11 +5,25 @@
 
 version: 2
 updates:
-  - package-ecosystem: "pip" # See documentation for possible values
-    directory: "/" # Location of package manifests
+  - package-ecosystem: pip
+    directory: /
     schedule:
+      interval: daily
+      time: "10:17"
+      timezone: America/Mexico_City
+    reviewers:
+      - "edgarrmondragon"
+  - package-ecosystem: pip
+    directory: "/.github/workflows"
+    schedule:
+      time: "10:17"
       interval: "daily"
-      time: "10:23"
-      timezone: "America/Mexico_City"
+    reviewers:
+      - "edgarrmondragon"
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      time: "10:17"
     reviewers:
       - "edgarrmondragon"
