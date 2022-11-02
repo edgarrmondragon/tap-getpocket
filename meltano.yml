@@ -3,20 +3,64 @@ send_anonymous_usage_stats: false
 project_id: ce7f7437-9a18-48e1-89de-7077b30d33cc
 plugins:
   extractors:
-  - name: tap-pocket
-    namespace: tap_pocket
+  - name: tap-getpocket
+    namespace: tap_getpocket
     pip_url: -e .
     capabilities:
     - state
     - catalog
     - discover
+    settings_group_validation:
+    - - consumer_key
+      - access_token
     settings:
     - name: consumer_key
       kind: password
+      label: Consumer Key
+      description: Pocket application consumer key
+      documentation: https://getpocket.com/developer/docs/authentication
     - name: access_token
       kind: password
+      label: Access Token
+      description: Pocket application access token
+      documentation: https://getpocket.com/developer/docs/authentication
     - name: start_date
       kind: string
+      label: Start Date
+      description: Start date for data extraction
+    - name: favorite
+      kind: boolean
+      label: Favorite
+      description: Extract favorite items
+    - name: content_type
+      kind: options
+      label: Content Type
+      description: Extract items of a specific content type
+      options:
+      - label: Article
+        value: article
+      - label: Video
+        value: video
+      - label: Image
+        value: image
+      - label: All
+        value: null
+    - name: state
+      kind: options
+      label: State
+      description: Extract items of a specific state
+      options:
+      - label: Unread
+        value: unread
+      - label: Archive
+        value: archive
+      - label: All
+        value: all
+    - name: tag
+      kind: string
+      label: Tag
+      description: >
+        Extract items of a specific tag. Use `_untagged_` to extract items without tags
   loaders:
   - name: target-jsonl
     variant: andyh1203

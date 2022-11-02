@@ -1,6 +1,6 @@
-# `tap-pocket`
+# `tap-getpocket`
 
-[![Test](https://github.com/edgarrmondragon/tap-pocket/actions/workflows/ci_workflow.yml/badge.svg)](https://github.com/edgarrmondragon/tap-pocket/actions/workflows/ci_workflow.yml)
+[![Test](https://github.com/edgarrmondragon/tap-getpocket/actions/workflows/ci_workflow.yml/badge.svg)](https://github.com/edgarrmondragon/tap-getpocket/actions/workflows/ci_workflow.yml)
 
 Pocket tap class.
 
@@ -22,12 +22,12 @@ Built with the [Meltano SDK](https://sdk.meltano.com) for Singer Taps and Target
 | access_token| True     | None    | Pocket user access token |
 | start_date  | False    | None    | The earliest record datetime to sync as a UNIX timestamp |
 
-A full list of supported settings and capabilities is available by running: `tap-pocket --about`
+A full list of supported settings and capabilities is available by running: `tap-getpocket --about`
 
 ## Installation
 
 ```bash
-pipx install git+https://github.com/edgarrmondragon/tap-pocket.git
+pipx install git+https://github.com/edgarrmondragon/tap-getpocket.git
 ```
 
 ## Configuration
@@ -38,7 +38,7 @@ A full list of supported settings and capabilities for this
 tap is available by running:
 
 ```bash
-tap-pocket --about
+tap-getpocket --about
 ```
 
 ### Source Authentication and Authorization
@@ -53,14 +53,14 @@ Documentation: https://getpocket.com/developer/docs/authentication
 
 ## Usage
 
-You can easily run `tap-pocket` by itself or in a pipeline using [Meltano](https://meltano.com/).
+You can easily run `tap-getpocket` by itself or in a pipeline using [Meltano](https://meltano.com/).
 
 ### Executing the Tap Directly
 
 ```bash
-tap-pocket --version
-tap-pocket --help
-tap-pocket --config CONFIG --discover > ./catalog.json
+tap-getpocket --version
+tap-getpocket --help
+tap-getpocket --config CONFIG --discover > ./catalog.json
 ```
 
 ## Developer Resources
@@ -81,10 +81,10 @@ Create tests within the `tap_pocket/tests` subfolder and
 poetry run pytest
 ```
 
-You can also test the `tap-pocket` CLI interface directly using `poetry run`:
+You can also test the `tap-getpocket` CLI interface directly using `poetry run`:
 
 ```bash
-poetry run tap-pocket --help
+poetry run tap-getpocket --help
 ```
 
 ### Testing with [Meltano](https://www.meltano.com)
@@ -98,7 +98,7 @@ Next, install Meltano (if you haven't already) and any needed plugins:
 # Install meltano
 pipx install meltano
 # Initialize meltano within this directory
-cd tap-pocket
+cd tap-getpocket
 meltano install
 ```
 
@@ -106,12 +106,12 @@ Now you can test and orchestrate using Meltano:
 
 ```bash
 # Test invocation:
-meltano invoke tap-pocket --version
+meltano invoke tap-getpocket --version
 # OR run a test `elt` pipeline:
-meltano elt tap-pocket target-jsonl
+meltano elt tap-getpocket target-jsonl
 ```
 
 ### SDK Dev Guide
 
-See the [dev guide](https://sdk.meltano.com/en/latest/dev_guide.html) for more instructions on how to use the SDK to 
+See the [dev guide](https://sdk.meltano.com/en/latest/dev_guide.html) for more instructions on how to use the SDK to
 develop your own taps and targets.
