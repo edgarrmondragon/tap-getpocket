@@ -1,1 +1,1 @@
-"""Test suite for tap-pocket."""
+"""Test suite for tap-getpocket."""

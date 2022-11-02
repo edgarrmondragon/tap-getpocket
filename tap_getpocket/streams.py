@@ -1,10 +1,12 @@
-"""Stream type classes for tap-pocket."""
+"""Stream type classes for tap-getpocket."""
 
-from typing import Any, Optional
+from __future__ import annotations
+
+from typing import Any
 
 from singer_sdk import typing as th  # JSON Schema typing helpers
 
-from tap_pocket.client import PocketStream
+from tap_getpocket.client import PocketStream
 
 String = th.StringType
 Integer = th.IntegerType
@@ -116,9 +118,9 @@ class Items(PocketStream):
 
     def prepare_request_payload(
         self,
-        context: Optional[dict],
-        next_page_token: Optional[Any],
-    ) -> Optional[dict]:
+        context: dict | None,
+        next_page_token: Any | None,
+    ) -> dict | None:
         """Construct and return request body for HTTP request.
 
         Args:
@@ -131,16 +133,26 @@ class Items(PocketStream):
         start_timestamp = self.get_starting_replication_key_value(context)
         self.logger.debug("Initial timestamp: %s", start_timestamp)
 
+        def _get_favorite_state(favorite: bool | None) -> int | None:
+            if favorite:
+                return 1
+            elif favorite is False:
+                return 0
+            return None
+
         return {
             "consumer_key": self.config["consumer_key"],
             "access_token": self.config["access_token"],
             "since": start_timestamp,
             "sort": "oldest",
             "detailType": "complete",
-            "state": "all",
+            "state": self.config["state"],
+            "tag": self.config.get("tag"),
+            "contentType": self.config.get("content_type"),
+            "favorite": _get_favorite_state(self.config.get("favorite")),
         }
 
-    def post_process(self, row: dict, context: Optional[dict] = None) -> Optional[dict]:
+    def post_process(self, row: dict, context: dict | None = None) -> dict | None:
         """Clean and massage the record.
 
         Args:

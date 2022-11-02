@@ -1,17 +1,18 @@
 [tool.poetry]
-name = "tap-pocket"
+name = "tap-getpocket"
 version = "0.0.1"
-description = "`tap-pocket` is a Singer tap for Pocket, built with the Meltano SDK for Singer Taps."
+description = "`tap-getpocket` is a Singer tap for Pocket, built with the Meltano SDK for Singer Taps."
 authors = ["Edgar Ramírez-Mondragón <edgarrm358@gmail.com>"]
 keywords = [
     "ELT",
     "Pocket",
+    "getpocket",
 ]
 license = "Apache 2.0"
 readme = "README.md"
-homepage = "https://github.com/edgarrmondragon/tap-pocket"
-repository = "https://github.com/edgarrmondragon/tap-pocket"
-documentation = "https://github.com/edgarrmondragon/tap-pocket#readme"
+homepage = "https://github.com/edgarrmondragon/tap-getpocket"
+repository = "https://github.com/edgarrmondragon/tap-getpocket"
+documentation = "https://github.com/edgarrmondragon/tap-getpocket#readme"
 
 [tool.poetry.dependencies]
 python = "<3.11,>=3.7.1"
@@ -25,7 +26,7 @@ types-requests = "^2.28.10"
 [tool.isort]
 profile = "black"
 multi_line_output = 3 # Vertical Hanging Indent
-src_paths = "tap_pocket"
+src_paths = "tap_getpocket"
 
 [tool.pytest.ini_options]
 addopts = "-vvv"
@@ -36,4 +37,4 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
 # CLI declaration
-tap-pocket = 'tap_pocket.tap:TapPocket.cli'
+tap-getpocket = 'tap_getpocket.tap:TapPocket.cli'
