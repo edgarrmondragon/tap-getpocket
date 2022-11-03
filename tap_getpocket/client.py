@@ -3,8 +3,8 @@
 from typing import Dict
 
 import requests
-from singer_sdk.streams import RESTStream
 from singer_sdk.pagination import BaseOffsetPaginator
+from singer_sdk.streams import RESTStream
 
 
 class PocketPaginator(BaseOffsetPaginator):
@@ -14,6 +14,9 @@ class PocketPaginator(BaseOffsetPaginator):
         """Return True if there are more pages to fetch.
 
         Args:
+            response: The most recent response object.
+
+        Returns:
             Whether there are more pages to fetch.
         """
         if response.json()["list"]:
