@@ -12,14 +12,14 @@ from tap_getpocket.tap import TapPocket
 @pytest.mark.parametrize("tag", ["python", "_untagged_", None])
 def test_standard_tap_tests(favorite, content_type, state, tag):
     """Run standard tap tests from the SDK."""
-    tests = get_standard_tap_tests(
-        TapPocket,
-        config={
-            "favorite": favorite,
-            "content_type": content_type,
-            "state": state,
-            "tag": tag,
-        },
-    )
+    config={
+        "favorite": favorite,
+        "state": state,
+        "tag": tag,
+    }
+    if content_type is not None:
+        config["content_type"] = content_type
+
+    tests = get_standard_tap_tests(TapPocket, config)
     for test in tests:
         test()
