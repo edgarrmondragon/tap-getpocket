@@ -49,7 +49,7 @@ class TapPocket(Tap):
                 "The content type of items to sync. By default, all content types "
                 "are synced."
             ),
-            allowed_values=["article", "video", "image", None],
+            allowed_values=["article", "video", "image"],
         ),
         th.Property(
             "state",

@@ -35,7 +35,9 @@ plugins:
     - name: content_type
       kind: options
       label: Content Type
-      description: Extract items of a specific content type
+      description: >
+        Extract items of a specific content type.
+        Leave out to extract all content types.
       options:
       - label: Article
         value: article
@@ -43,8 +45,6 @@ plugins:
         value: video
       - label: Image
         value: image
-      - label: All
-        value: null
     - name: state
       kind: options
       label: State
@@ -61,6 +61,9 @@ plugins:
       label: Tag
       description: >
         Extract items of a specific tag. Use `_untagged_` to extract items without tags
+    config:
+      state: all
+      content_type: article
   loaders:
   - name: target-jsonl
     variant: andyh1203

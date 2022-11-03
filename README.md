@@ -4,7 +4,7 @@
 
 Pocket tap class.
 
-Built with the [Meltano SDK](https://sdk.meltano.com) for Singer Taps and Targets.
+Built with the [Meltano Singer SDK](https://sdk.meltano.com).
 
 ## Capabilities
 
@@ -13,14 +13,23 @@ Built with the [Meltano SDK](https://sdk.meltano.com) for Singer Taps and Target
 * `discover`
 * `about`
 * `stream-maps`
+* `schema-flattening`
 
 ## Settings
 
-| Setting     | Required | Default | Description |
-|:------------|:--------:|:-------:|:------------|
-| consumer_key| True     | None    | Pocket application key |
-| access_token| True     | None    | Pocket user access token |
-| start_date  | False    | None    | The earliest record datetime to sync as a UNIX timestamp |
+| Setting             | Required | Default | Description |
+|:--------------------|:--------:|:-------:|:------------|
+| consumer_key        | True     | None    | Pocket application key |
+| access_token        | True     | None    | Pocket user access token |
+| start_date          | False    | None    | The earliest record datetime to sync as a UNIX timestamp |
+| favorite            | False    | None    | Set to `true` to sync only favorite items, `false` to sync only non-favorite items, or omit to sync all items |
+| content_type        | False    | None    | The content type of items to sync. By default, all content types are synced. |
+| state               | True     | all     | Type of item state to sync. By default, all states are synced. |
+| tag                 | False    | None    | The tag to sync. By default, all tags are synced. Use `_untagged_` to sync untagged items. |
+| stream_maps         | False    | None    | Config object for stream maps capability. For more information check out [Stream Maps](https://sdk.meltano.com/en/latest/stream_maps.html). |
+| stream_map_config   | False    | None    | User-defined config values to be used within map expressions. |
+| flattening_enabled  | False    | None    | 'True' to enable schema flattening and automatically expand nested properties. |
+| flattening_max_depth| False    | None    | The max depth to flatten schemas. |
 
 A full list of supported settings and capabilities is available by running: `tap-getpocket --about`
 
