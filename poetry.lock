@@ -153,7 +153,7 @@ python-versions = ">=3.5"
 
 [[package]]
 name = "importlib-metadata"
-version = "5.0.0"
+version = "4.13.0"
 description = "Read metadata from Python packages"
 category = "main"
 optional = false
@@ -478,19 +478,19 @@ python-versions = ">=2.5, !=3.0.*, !=3.1.*, !=3.2.*"
 
 [[package]]
 name = "singer-sdk"
-version = "0.13.0"
+version = "0.13.1"
 description = "A framework for building Singer taps"
 category = "main"
 optional = false
-python-versions = ">=3.7.1,<3.11"
+python-versions = ">=3.7.1,<3.12"
 
 [package.dependencies]
 backoff = ">=2.0.0,<3.0"
 click = ">=8.0,<9.0"
 cryptography = ">=3.4.6,<39.0.0"
 fs = ">=2.4.16,<3.0.0"
-importlib-metadata = {version = "*", markers = "python_version < \"3.8\""}
-importlib-resources = {version = ">=5.9.0,<6.0.0", markers = "python_version < \"3.9\""}
+importlib-metadata = {version = "<5.0.0", markers = "python_version < \"3.8\""}
+importlib-resources = {version = "5.9.0", markers = "python_version < \"3.9\""}
 inflection = ">=0.5.1,<0.6.0"
 joblib = ">=1.0.1,<2.0.0"
 jsonpath-ng = ">=1.5.3,<2.0.0"
@@ -621,7 +621,7 @@ testing = ["func-timeout", "jaraco.itertools", "pytest (>=6)", "pytest-black (>=
 [metadata]
 lock-version = "1.1"
 python-versions = "<3.11,>=3.7.1"
-content-hash = "13c48b13cb0029ab982201a2961cfa8a5684ad62b7b60627eeb255ac1d00f959"
+content-hash = "8db746512ab4cce2b6f3bee400049fb4e5364f6fa87e6d761f6d99fec3d96b69"
 
 [metadata.files]
 appdirs = [
@@ -819,8 +819,8 @@ idna = [
     {file = "idna-3.4.tar.gz", hash = "sha256:814f528e8dead7d329833b91c5faa87d60bf71824cd12a7530b5526063d02cb4"},
 ]
 importlib-metadata = [
-    {file = "importlib_metadata-5.0.0-py3-none-any.whl", hash = "sha256:ddb0e35065e8938f867ed4928d0ae5bf2a53b7773871bfe6bcc7e4fcdc7dea43"},
-    {file = "importlib_metadata-5.0.0.tar.gz", hash = "sha256:da31db32b304314d044d3c12c79bd59e307889b287ad12ff387b3500835fc2ab"},
+    {file = "importlib_metadata-4.13.0-py3-none-any.whl", hash = "sha256:8a8a81bcf996e74fee46f0d16bd3eaa382a7eb20fd82445c3ad11f4090334116"},
+    {file = "importlib_metadata-4.13.0.tar.gz", hash = "sha256:dd0173e8f150d6815e098fd354f6414b0f079af4644ddfe90c71e2fc6174346d"},
 ]
 importlib-resources = [
     {file = "importlib_resources-5.9.0-py3-none-any.whl", hash = "sha256:f78a8df21a79bcc30cfd400bdc38f314333de7c0fb619763f6b9dabab8268bb7"},
@@ -1088,8 +1088,8 @@ simplejson = [
     {file = "simplejson-3.17.6.tar.gz", hash = "sha256:cf98038d2abf63a1ada5730e91e84c642ba6c225b0198c3684151b1f80c5f8a6"},
 ]
 singer-sdk = [
-    {file = "singer_sdk-0.13.0-py3-none-any.whl", hash = "sha256:5e32c0f8cb7c7f3f80a6d8da5c6bec8ace0315f04da80f51fd9827d8a9d28e36"},
-    {file = "singer_sdk-0.13.0.tar.gz", hash = "sha256:6b29e3b7daa328386dc70fc0c39e6314a610598ab20986eaa80e0a17fd584b44"},
+    {file = "singer_sdk-0.13.1-py3-none-any.whl", hash = "sha256:13c651affc15c82743dfb6b7eddfc2bb487d2bd786ec98b3349174444fc2856d"},
+    {file = "singer_sdk-0.13.1.tar.gz", hash = "sha256:b9636843c78de3954e064ec52cb8269950a0c099bdd4c4b96011e16e28f4ca2e"},
 ]
 six = [
     {file = "six-1.16.0-py2.py3-none-any.whl", hash = "sha256:8abb2f1d86890a2dfb989f9a77cfcfd3e47c2a354b01111771326f8aa26e0254"},
