@@ -8,7 +8,7 @@ keywords = [
     "Pocket",
     "getpocket",
 ]
-license = "Apache 2.0"
+license = "Apache-2.0"
 readme = "README.md"
 homepage = "https://github.com/edgarrmondragon/tap-getpocket"
 repository = "https://github.com/edgarrmondragon/tap-getpocket"
