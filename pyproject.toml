@@ -15,13 +15,11 @@ repository = "https://github.com/edgarrmondragon/tap-getpocket"
 documentation = "https://github.com/edgarrmondragon/tap-getpocket#readme"
 
 [tool.poetry.dependencies]
-python = "<3.11,>=3.7.1"
-singer-sdk = "==0.15.0"
+python = "<3.12,>=3.7.1"
+singer-sdk = "==0.16.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^7.2.0"
-mypy = "^0.991"
-types-requests = "^2.28.11"
 
 [tool.isort]
 profile = "black"
