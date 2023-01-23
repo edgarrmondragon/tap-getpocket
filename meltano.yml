@@ -17,13 +17,13 @@ plugins:
     - name: consumer_key
       kind: password
       label: Consumer Key
-      description: Pocket application consumer key
       documentation: https://getpocket.com/developer/docs/authentication
+      description: Pocket application consumer key
     - name: access_token
       kind: password
       label: Access Token
-      description: Pocket application access token
       documentation: https://getpocket.com/developer/docs/authentication
+      description: Pocket application access token
     - name: start_date
       kind: string
       label: Start Date
@@ -60,10 +60,13 @@ plugins:
       kind: string
       label: Tag
       description: >
-        Extract items of a specific tag. Use `_untagged_` to extract items without tags
+        Extract items of a specific tag. Use `_untagged_` to extract items without
+        tags
     config:
       state: all
       content_type: article
+    select:
+    - '*.*'
   loaders:
   - name: target-jsonl
     variant: andyh1203
