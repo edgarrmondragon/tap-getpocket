@@ -1,16 +1,20 @@
 """REST client handling, including PocketStream base class."""
 
-from typing import Dict
+from __future__ import annotations
 
-import requests
+from typing import TYPE_CHECKING
+
 from singer_sdk.pagination import BaseOffsetPaginator
 from singer_sdk.streams import RESTStream
+
+if TYPE_CHECKING:
+    from requests import Response
 
 
 class PocketPaginator(BaseOffsetPaginator):
     """Pocket API pagination handler."""
 
-    def has_more(self, response: requests.Response) -> bool:
+    def has_more(self, response: Response) -> bool:
         """Return True if there are more pages to fetch.
 
         Args:
@@ -40,7 +44,7 @@ class PocketStream(RESTStream):
         return PocketPaginator(0, self.page_size)
 
     @property
-    def http_headers(self) -> Dict[str, str]:
+    def http_headers(self) -> dict[str, str]:
         """Return the http headers needed.
 
         Returns:

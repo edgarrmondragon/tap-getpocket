@@ -136,7 +136,7 @@ class Items(PocketStream):
         def _get_favorite_state(favorite: bool | None) -> int | None:
             if favorite:
                 return 1
-            elif favorite is False:
+            if favorite is False:
                 return 0
             return None
 
@@ -154,12 +154,11 @@ class Items(PocketStream):
             "favorite": _get_favorite_state(self.config.get("favorite")),
         }
 
-    def post_process(self, row: dict, context: dict | None = None) -> dict | None:
+    def post_process(self, row: dict, _: dict | None = None) -> dict | None:
         """Clean and massage the record.
 
         Args:
             row: Stream record.
-            context: Stream context. Defaults to None.
 
         Returns:
             Processed record.
