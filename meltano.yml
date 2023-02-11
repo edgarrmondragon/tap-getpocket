@@ -1,6 +1,7 @@
 version: 1
 send_anonymous_usage_stats: false
 project_id: ce7f7437-9a18-48e1-89de-7077b30d33cc
+default_environment: dev
 plugins:
   extractors:
   - name: tap-getpocket

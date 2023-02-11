@@ -6,7 +6,8 @@ jobs:
   tests:
     runs-on: ubuntu-latest
     env:
-      SETUPTOOLS_USE_DISTUTILS: stdlib
+      FORCE_COLOR: "1"
+      NOXSESSION: tests-${{ matrix.python-version }}
       PIP_CONSTRAINT: .github/workflows/constraints.txt
     strategy:
       matrix:
@@ -31,14 +32,15 @@ jobs:
         pipx install poetry
         poetry --version
 
-    - name: Install tox
+    - name: Install Nox
       run: |
-        pipx install tox
-        tox --version
+        pipx install nox
+        pipx inject nox nox-poetry
+        nox --version
 
     - name: Run tests command with Tox
       env:
         TAP_GETPOCKET_CONSUMER_KEY: ${{ secrets.TAP_GETPOCKET_CONSUMER_KEY }}
         TAP_GETPOCKET_ACCESS_TOKEN: ${{ secrets.TAP_GETPOCKET_ACCESS_TOKEN }}
       run: |
-        tox -e pytest
+        nox
