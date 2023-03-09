@@ -1,0 +1,34 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "tap-getpocket",
+            "type": "python",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "program": "tap_getpocket",
+            "justMyCode": false,
+            "args": [
+                "--config",
+                ".secrets/config.json",
+            ],
+        },
+        {
+            "name": "Custom catalog",
+            "type": "python",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "program": "tap_getpocket",
+            "justMyCode": false,
+            "args": [
+                "--config",
+                "ENV",
+                "--catalog",
+                "catalog.json",
+            ],
+        }
+    ]
+}
