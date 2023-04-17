@@ -15,7 +15,7 @@ python = "<3.12,>=3.7.1"
 singer-sdk = "==0.24.0"
 
 [tool.poetry.dev-dependencies]
-pytest = "^7.3.0"
+pytest = "^7.3.1"
 
 [tool.isort]
 profile = "black"
