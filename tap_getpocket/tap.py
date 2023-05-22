@@ -58,7 +58,7 @@ class TapPocket(Tap):
                 "Type of item state to sync. By default, all states are synced."
             ),
             allowed_values=["archive", "unread", "all"],
-            required=True,  # FIXME: This is done only to mark the field as non-nullable
+            required=True,  # This is done only to mark the field as non-nullable
             default="all",
         ),
         th.Property(
