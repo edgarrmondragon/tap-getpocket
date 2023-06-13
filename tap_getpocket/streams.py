@@ -134,11 +134,7 @@ class Items(PocketStream):
         self.logger.debug("Initial timestamp: %s", start_timestamp)
 
         def _get_favorite_state(favorite: bool | None) -> int | None:
-            if favorite:
-                return 1
-            if favorite is False:
-                return 0
-            return None
+            return None if favorite is None else int(favorite)
 
         return {
             "consumer_key": self.config["consumer_key"],
@@ -174,7 +170,7 @@ class Items(PocketStream):
 
         row["word_count"] = int(row["word_count"])
 
-        for key in {"time_added", "time_updated", "time_read", "time_favorited"}:
+        for key in ("time_added", "time_updated", "time_read", "time_favorited"):
             row[key] = int(row[key])
 
         return row
