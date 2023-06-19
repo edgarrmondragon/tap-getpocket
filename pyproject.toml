@@ -27,14 +27,6 @@ pytest = "^7.3.2"
 # CLI declaration
 tap-getpocket = 'tap_getpocket.tap:TapPocket.cli'
 
-[tool.isort]
-profile = "black"
-multi_line_output = 3       # Vertical Hanging Indent
-src_paths = "tap_getpocket"
-
-[tool.pytest.ini_options]
-addopts = "-vvv"
-
 [tool.ruff]
 ignore = [
     "ANN101", # missing-type-self
@@ -52,3 +44,11 @@ unfixable = [
 
 [tool.ruff.pydocstyle]
 convention = "google"
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3       # Vertical Hanging Indent
+src_paths = "tap_getpocket"
+
+[tool.pytest.ini_options]
+addopts = "-vvv"
