@@ -691,13 +691,13 @@ files = [
 
 [[package]]
 name = "pytest"
-version = "7.3.2"
+version = "7.4.0"
 description = "pytest: simple powerful testing with Python"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "pytest-7.3.2-py3-none-any.whl", hash = "sha256:cdcbd012c9312258922f8cd3f1b62a6580fdced17db6014896053d47cddf9295"},
-    {file = "pytest-7.3.2.tar.gz", hash = "sha256:ee990a3cc55ba808b80795a79944756f315c67c12b56abd3ac993a7b8c17030b"},
+    {file = "pytest-7.4.0-py3-none-any.whl", hash = "sha256:78bf16451a2eb8c7a2ea98e32dc119fd2aa758f1d5d66dbf0a59d69a3969df32"},
+    {file = "pytest-7.4.0.tar.gz", hash = "sha256:b4bf8c45bd59934ed84001ad51e11b4ee40d40a1229d2c79f9c592b0a3f6bd8a"},
 ]
 
 [package.dependencies]
@@ -711,6 +711,20 @@ tomli = {version = ">=1.0.0", markers = "python_version < \"3.11\""}
 
 [package.extras]
 testing = ["argcomplete", "attrs (>=19.2.0)", "hypothesis (>=3.56)", "mock", "nose", "pygments (>=2.7.2)", "requests", "setuptools", "xmlschema"]
+
+[[package]]
+name = "pytest-durations"
+version = "1.2.0"
+description = "Pytest plugin reporting fixtures and test functions execution time."
+optional = false
+python-versions = ">=3.6.2"
+files = [
+    {file = "pytest-durations-1.2.0.tar.gz", hash = "sha256:75793f7c2c393a947de4a92cc205e8dcb3d7fcde492628926cca97eb8e87077d"},
+    {file = "pytest_durations-1.2.0-py3-none-any.whl", hash = "sha256:210c649d989fdf8e864b7f614966ca2c8be5b58a5224d60089a43618c146d7fb"},
+]
+
+[package.dependencies]
+pytest = ">=4.6"
 
 [[package]]
 name = "python-dateutil"
@@ -955,6 +969,8 @@ jsonschema = ">=4.16.0,<5.0.0"
 memoization = ">=0.3.2,<0.5.0"
 pendulum = ">=2.1.0,<3.0.0"
 PyJWT = ">=2.4,<3.0"
+pytest = {version = ">=7.2.1,<8.0.0", optional = true, markers = "extra == \"testing\""}
+pytest-durations = {version = ">=1.2.0,<2.0.0", optional = true, markers = "extra == \"testing\""}
 python-dotenv = ">=0.20,<0.22"
 pytz = ">=2022.2.1,<2024.0.0"
 PyYAML = ">=6.0,<7.0"
@@ -1111,4 +1127,4 @@ testing = ["flake8 (<5)", "func-timeout", "jaraco.functools", "jaraco.itertools"
 [metadata]
 lock-version = "2.0"
 python-versions = "<3.12,>=3.7.1"
-content-hash = "3b695a3afa300d25fa376b62b843aea3dd87690c64e479a6bedd7429c05d6647"
+content-hash = "c08bfadfaf6d99877801e46835c3d3d9a53d1e280ce138d10f87fc26754197bc"
