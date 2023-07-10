@@ -1,6 +1,26 @@
 name: Test tap-getpocket
 
-on: [push]
+on:
+  push:
+    branches: [main]
+    paths:
+      - tap_getpocket/**
+      - tests/**
+      - noxfile.py
+      - poetry.lock
+      - pyproject.toml
+      - .github/workflows/test.yml
+      - .github/workflows/constraints.txt
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - tap_getpocket/**
+      - tests/**
+      - noxfile.py
+      - poetry.lock
+      - pyproject.toml
+      - .github/workflows/test.yml
+      - .github/workflows/constraints.txt
 
 jobs:
   tests:
@@ -38,7 +58,7 @@ jobs:
         pipx inject nox nox-poetry
         nox --version
 
-    - name: Run tests command with Tox
+    - name: Run Nox
       env:
         TAP_GETPOCKET_CONSUMER_KEY: ${{ secrets.TAP_GETPOCKET_CONSUMER_KEY }}
         TAP_GETPOCKET_ACCESS_TOKEN: ${{ secrets.TAP_GETPOCKET_ACCESS_TOKEN }}
