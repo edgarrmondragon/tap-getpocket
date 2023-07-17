@@ -13,7 +13,7 @@ STREAM_TYPES = [
 
 
 class TapPocket(Tap):
-    """Pocket tap class."""
+    """Singer tap for extracting data from the Pocket API."""
 
     name = "tap-getpocket"
     config_jsonschema = th.PropertiesList(
