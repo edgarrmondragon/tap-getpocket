@@ -2,8 +2,6 @@
 
 from __future__ import annotations
 
-from typing import Any
-
 from singer_sdk import typing as th  # JSON Schema typing helpers
 
 from tap_getpocket.client import PocketStream
