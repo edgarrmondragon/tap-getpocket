@@ -119,7 +119,7 @@ class Items(PocketStream):
     def prepare_request_payload(
         self,
         context: dict | None,
-        next_page_token: Any | None,
+        next_page_token: int | None,
     ) -> dict | None:
         """Construct and return request body for HTTP request.
 
