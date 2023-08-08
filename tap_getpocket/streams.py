@@ -2,8 +2,6 @@
 
 from __future__ import annotations
 
-from typing import Any
-
 from singer_sdk import typing as th  # JSON Schema typing helpers
 
 from tap_getpocket.client import PocketStream
@@ -119,7 +117,7 @@ class Items(PocketStream):
     def prepare_request_payload(
         self,
         context: dict | None,
-        next_page_token: Any | None,
+        next_page_token: int | None,
     ) -> dict | None:
         """Construct and return request body for HTTP request.
 
