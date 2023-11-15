@@ -30,8 +30,9 @@ jobs:
       NOXSESSION: tests-${{ matrix.python-version }}
       PIP_CONSTRAINT: .github/workflows/constraints.txt
     strategy:
+      fail-fast: false
       matrix:
-        python-version: ["3.8", "3.9", "3.10", "3.11"]
+        python-version: ["3.8", "3.9", "3.10", "3.11", "3.12"]
 
     steps:
     - name: Checkout code
@@ -50,6 +51,7 @@ jobs:
     - name: Install Poetry
       run: |
         pipx install poetry
+        pipx inject poetry poetry-plugin-export
         poetry --version
 
     - name: Install Nox
