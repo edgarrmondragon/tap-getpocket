@@ -23,7 +23,7 @@ pendulum = [
   { version = ">=3.0.0b1", python = ">=3.12", allow-prereleases = true },
 ]
 python = ">=3.8,<4"
-singer-sdk = "~=0.33.0"
+singer-sdk = "~=0.34.0"
 
 [tool.poetry.dev-dependencies]
 singer-sdk = { version = "*", extras = ["testing"] }
