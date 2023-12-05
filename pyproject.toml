@@ -17,12 +17,12 @@ repository = "https://github.com/edgarrmondragon/tap-getpocket"
 documentation = "https://github.com/edgarrmondragon/tap-getpocket#readme"
 
 [tool.poetry.dependencies]
-importlib-resources = "<6"  # TODO: Remove after Pendulum is released with https://github.com/sdispater/pendulum/issues/759
+importlib-resources = "<7"  # TODO: Remove after Pendulum is released with https://github.com/sdispater/pendulum/issues/759
 pendulum = [
   { version = ">=2", python = "<3.12" },
   { version = ">=3.0.0b1", python = ">=3.12", allow-prereleases = true },
 ]
-python = ">=3.8,<4"
+python = ">=3.8"
 singer-sdk = "~=0.34.0"
 
 [tool.poetry.dev-dependencies]
