@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+import typing as t
+
 from singer_sdk import typing as th  # JSON Schema typing helpers
 
 from tap_getpocket.client import PocketStream
@@ -17,7 +19,7 @@ class Items(PocketStream):
 
     name = "items"
     path = "/v3/get"
-    primary_keys = ("item_id",)
+    primary_keys = ("item_id",)  # type: ignore[assignment]
     replication_key = "time_updated"
     rest_method = "POST"
 
@@ -116,9 +118,9 @@ class Items(PocketStream):
 
     def prepare_request_payload(
         self,
-        context: dict | None,
+        context: dict[t.Any, t.Any] | None,
         next_page_token: int | None,
-    ) -> dict | None:
+    ) -> dict[t.Any, t.Any] | None:
         """Construct and return request body for HTTP request.
 
         Args:
@@ -148,7 +150,11 @@ class Items(PocketStream):
             "favorite": _get_favorite_state(self.config.get("favorite")),
         }
 
-    def post_process(self, row: dict, _: dict | None = None) -> dict | None:
+    def post_process(
+        self,
+        row: dict[str, t.Any],
+        _: dict[t.Any, t.Any] | None = None,
+    ) -> dict[str, t.Any] | None:
         """Clean and massage the record.
 
         Args:

@@ -6,8 +6,6 @@ on:
     paths:
       - tap_getpocket/**
       - tests/**
-      - noxfile.py
-      - poetry.lock
       - pyproject.toml
       - .github/workflows/test.yml
       - .github/workflows/constraints.txt
@@ -16,53 +14,50 @@ on:
     paths:
       - tap_getpocket/**
       - tests/**
-      - noxfile.py
-      - poetry.lock
       - pyproject.toml
       - .github/workflows/test.yml
       - .github/workflows/constraints.txt
+  schedule:
+  - cron: "0 10 * * *"
 
 jobs:
   tests:
     runs-on: ubuntu-latest
     env:
       FORCE_COLOR: "1"
-      NOXSESSION: tests-${{ matrix.python-version }}
       PIP_CONSTRAINT: .github/workflows/constraints.txt
     strategy:
       fail-fast: false
       matrix:
+        script: ["test:integration"]
         python-version: ["3.8", "3.9", "3.10", "3.11", "3.12"]
+        include:
+        - { script: "test:dependencies", python-version: "3.11" }
+        - { script: "typing:check",      python-version: "3.11" }
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v4.1.1
+      uses: actions/checkout@v4
 
     - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v4.7.1
+      uses: actions/setup-python@v5
       with:
         python-version: ${{ matrix.python-version }}
+        cache: pip
 
     - name: Upgrade pip
       run: |
         pip install pip
         pip --version
 
-    - name: Install Poetry
+    - name: Install Hatch
       run: |
-        pipx install poetry
-        pipx inject poetry poetry-plugin-export
-        poetry --version
+        pipx install hatch --python "python${{ matrix.python-version }}"
+        hatch --version
 
-    - name: Install Nox
-      run: |
-        pipx install nox
-        pipx inject nox nox-poetry
-        nox --version
-
-    - name: Run Nox
+    - name: Run
       env:
         TAP_GETPOCKET_CONSUMER_KEY: ${{ secrets.TAP_GETPOCKET_CONSUMER_KEY }}
         TAP_GETPOCKET_ACCESS_TOKEN: ${{ secrets.TAP_GETPOCKET_ACCESS_TOKEN }}
       run: |
-        nox
+        hatch run ${{ matrix.script }}

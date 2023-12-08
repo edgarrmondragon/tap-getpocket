@@ -85,23 +85,21 @@ tap-getpocket --config CONFIG --discover > ./catalog.json
 ### Initialize your Development Environment
 
 ```bash
-pipx install poetry
-poetry install
+pipx install hatch
 ```
 
 ### Create and Run Tests
 
-Create tests within the `tap_pocket/tests` subfolder and
-  then run:
+Run integration tests:
 
 ```bash
-poetry run pytest
+hatch run tests:integration
 ```
 
-You can also test the `tap-getpocket` CLI interface directly using `poetry run`:
+You can also test the `tap-getpocket` CLI interface directly:
 
 ```bash
-poetry run tap-getpocket --help
+hatch run sync:console -- --about --format=json
 ```
 
 ### Testing with [Meltano](https://www.meltano.com)
@@ -109,26 +107,22 @@ poetry run tap-getpocket --help
 _**Note:** This tap will work in any Singer environment and does not require Meltano.
 Examples here are for convenience and to streamline end-to-end orchestration scenarios._
 
-Next, install Meltano (if you haven't already) and any needed plugins:
+Your project comes with a custom `meltano.yml` project file already created. Go ahead and [install Meltano](https://docs.meltano.com/getting-started/installation/) if you haven't already.
 
-```bash
-# Install meltano
-pipx install meltano
-# Initialize meltano within this directory
-cd tap-getpocket
-meltano install
-```
+1. Install all plugins
 
-Now you can test and orchestrate using Meltano:
+   ```bash
+   meltano install
+   ```
 
-```bash
-# Test invocation:
-meltano invoke tap-getpocket --version
-# OR run a test `elt` pipeline:
-meltano elt tap-getpocket target-jsonl
-```
+1. Check that the extractor is working properly
 
-### SDK Dev Guide
+   ```bash
+   meltano invoke tap-getpocket --version
+   ```
 
-See the [dev guide](https://sdk.meltano.com/en/latest/dev_guide.html) for more instructions on how to use the SDK to
-develop your own taps and targets.
+1. Execute an ELT pipeline
+
+   ```bash
+   meltano run tap-getpocket target-jsonl
+   ```

@@ -1,36 +1,66 @@
 [build-system]
-build-backend = "poetry.core.masonry.api"
+build-backend = "hatchling.build"
 requires = [
-  "poetry-core==1.6.1",
+  "hatchling",
 ]
 
-[tool.poetry]
+[project]
 name = "tap-getpocket"
 version = "0.0.1"
 description = "`tap-getpocket` is a Singer tap for Pocket, built with the Meltano SDK for Singer Taps."
-authors = ["Edgar Ramírez-Mondragón <edgarrm358@gmail.com>"]
-keywords = ["ELT", "Pocket", "getpocket"]
-license = "Apache-2.0"
 readme = "README.md"
-homepage = "https://github.com/edgarrmondragon/tap-getpocket"
-repository = "https://github.com/edgarrmondragon/tap-getpocket"
-documentation = "https://github.com/edgarrmondragon/tap-getpocket#readme"
-
-[tool.poetry.dependencies]
-importlib-resources = "<6"  # TODO: Remove after Pendulum is released with https://github.com/sdispater/pendulum/issues/759
-pendulum = [
-  { version = ">=2", python = "<3.12" },
-  { version = ">=3.0.0b1", python = ">=3.12", allow-prereleases = true },
+keywords = [
+  "ELT",
+  "getpocket",
+  "Pocket",
 ]
-python = ">=3.8,<4"
-singer-sdk = "~=0.34.0"
-
-[tool.poetry.dev-dependencies]
-singer-sdk = { version = "*", extras = ["testing"] }
-
-[tool.poetry.scripts]
-# CLI declaration
+license = "Apache-2.0"
+maintainers = [{ name = "Edgar Ramírez-Mondragón", email = "edgarrm358@gmail.com" }]
+authors = [{ name = "Edgar Ramírez-Mondragón", email = "edgarrm358@gmail.com" }]
+requires-python = ">=3.8"
+classifiers = [
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+]
+dependencies = [
+  'pendulum~=3.0.0b1; python_version >= "3.12"',
+  "requests",
+  "singer-sdk~=0.34.0",
+]
+[project.optional-dependencies]
+testing = [
+  "deptry",
+  "singer-sdk[testing]~=0.34.0",
+]
+typing = [
+  "mypy",
+  "types-requests",
+]
+[project.urls]
+Documentation = "https://github.com/edgarrmondragon/tap-getpocket#readme"
+Homepage = "https://github.com/edgarrmondragon/tap-getpocket"
+Source = "https://github.com/edgarrmondragon/tap-getpocket"
+[project.scripts]
 tap-getpocket = 'tap_getpocket.tap:TapPocket.cli'
+
+[tool.hatch.envs.sync.scripts]
+console = "tap-getpocket {args}"
+jsonl = "tap-getpocket {args} > tap-getpocket.jsonl"
+
+[tool.hatch.envs.test]
+features = ["testing"]
+[tool.hatch.envs.test.scripts]
+integration = "pytest {args:tests}"
+dependencies = "deptry ."
+
+[tool.hatch.envs.typing]
+features = ["testing", "typing"]
+[tool.hatch.envs.typing.scripts]
+check = "mypy --strict {args:tap_getpocket tests}"
 
 [tool.ruff]
 line-length = 88
@@ -38,10 +68,10 @@ target-version = "py38"
 
 [tool.ruff.lint]
 ignore = [
-    "ANN101", # missing-type-self
-    "DJ",     # flake8-django
-    "COM812",  # missing-trailing-comma
-    "ISC001",  # single-line-implicit-string-concatenation
+  "ANN101", # missing-type-self
+  "DJ",     # flake8-django
+  "COM812",  # missing-trailing-comma
+  "ISC001",  # single-line-implicit-string-concatenation
 ]
 select = ["ALL"]
 unfixable = [
@@ -51,8 +81,30 @@ unfixable = [
 [tool.ruff.lint.per-file-ignores]
 "tests/*" = ["ANN"]
 
+[tool.ruff.lint.isort]
+known-first-party = ["tap_getpocket"]
+required-imports = ["from __future__ import annotations"]
+
 [tool.ruff.lint.pydocstyle]
 convention = "google"
 
+[tool.deptry.package_module_name_map]
+mypy = "mypy"
+types-requests = "types_requests"
+
+[tool.deptry.per_rule_ignores]
+DEP002 = [
+  "deptry",
+  "mypy",
+  "pendulum",
+  "types-requests",
+]
+
 [tool.pytest.ini_options]
 addopts = "-vvv"
+
+[tool.mypy]
+python_version = "3.11"
+warn_redundant_casts = true
+warn_unused_configs = true
+warn_unused_ignores = true
