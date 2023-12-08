@@ -1,4 +1,5 @@
 """Tests standard tap features using the built-in SDK tests library."""
+from __future__ import annotations
 
 import pytest
 from singer_sdk.testing import get_standard_tap_tests
@@ -10,7 +11,12 @@ from tap_getpocket.tap import TapPocket
 @pytest.mark.parametrize("content_type", ["article", "video", "image", None])
 @pytest.mark.parametrize("state", ["archive", "unread", "all"])
 @pytest.mark.parametrize("tag", ["python", "_untagged_", None])
-def test_standard_tap_tests(favorite, content_type, state, tag):
+def test_standard_tap_tests(
+    favorite: bool | None,
+    content_type: str | None,
+    state: str,
+    tag: str | None,
+) -> None:
     """Run standard tap tests from the SDK."""
     config = {
         "favorite": favorite,

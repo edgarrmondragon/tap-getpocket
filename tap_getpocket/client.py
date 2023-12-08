@@ -28,7 +28,7 @@ class PocketPaginator(BaseOffsetPaginator):
         return False
 
 
-class PocketStream(RESTStream):
+class PocketStream(RESTStream[int]):
     """Pocket stream class."""
 
     url_base = "https://getpocket.com"
