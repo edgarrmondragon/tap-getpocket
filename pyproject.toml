@@ -31,21 +31,18 @@ dependencies = [
   "requests",
   "singer-sdk~=0.34.0",
 ]
-[project.optional-dependencies]
-testing = [
+optional-dependencies.testing = [
   "deptry",
   "singer-sdk[testing]~=0.34.0",
 ]
-typing = [
+optional-dependencies.typing = [
   "mypy",
   "types-requests",
 ]
-[project.urls]
-Documentation = "https://github.com/edgarrmondragon/tap-getpocket#readme"
-Homepage = "https://github.com/edgarrmondragon/tap-getpocket"
-Source = "https://github.com/edgarrmondragon/tap-getpocket"
-[project.scripts]
-tap-getpocket = 'tap_getpocket.tap:TapPocket.cli'
+urls.Documentation = "https://github.com/edgarrmondragon/tap-getpocket#readme"
+urls.Homepage = "https://github.com/edgarrmondragon/tap-getpocket"
+urls.Source = "https://github.com/edgarrmondragon/tap-getpocket"
+scripts.tap-getpocket = 'tap_getpocket.tap:TapPocket.cli'
 
 [tool.hatch.envs.sync.scripts]
 console = "tap-getpocket {args}"
@@ -90,14 +87,13 @@ convention = "google"
 
 [tool.deptry.package_module_name_map]
 mypy = "mypy"
-types-requests = "types_requests"
+types-requests = "requests"
 
 [tool.deptry.per_rule_ignores]
 DEP002 = [
   "deptry",
   "mypy",
   "pendulum",
-  "types-requests",
 ]
 
 [tool.pytest.ini_options]
