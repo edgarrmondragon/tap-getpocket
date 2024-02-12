@@ -19,7 +19,7 @@ class Items(PocketStream):
 
     name = "items"
     path = "/v3/get"
-    primary_keys = ("item_id",)  # type: ignore[assignment]
+    primary_keys = ("item_id",)
     replication_key = "time_updated"
     rest_method = "POST"
 
