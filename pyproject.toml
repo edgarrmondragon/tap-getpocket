@@ -60,7 +60,6 @@ check = "mypy --strict {args:tap_getpocket tests}"
 
 [tool.ruff]
 line-length = 88
-target-version = "py38"
 
 [tool.ruff.lint]
 ignore = [
