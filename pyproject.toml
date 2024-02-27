@@ -53,6 +53,11 @@ features = ["testing"]
 integration = "pytest {args:tests}"
 dependencies = "deptry ."
 
+[tool.hatch.envs.all]
+template = "test"
+[[tool.hatch.envs.all.matrix]]
+python = ["3.8", "3.9", "3.10", "3.11", "3.12"]
+
 [tool.hatch.envs.typing]
 features = ["testing", "typing"]
 [tool.hatch.envs.typing.scripts]
