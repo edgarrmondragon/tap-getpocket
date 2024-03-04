@@ -36,7 +36,6 @@ optional-dependencies.testing = [
 ]
 optional-dependencies.typing = [
   "mypy",
-  "types-requests",
 ]
 urls.Documentation = "https://github.com/edgarrmondragon/tap-getpocket#readme"
 urls.Homepage = "https://github.com/edgarrmondragon/tap-getpocket"
@@ -90,12 +89,12 @@ convention = "google"
 
 [tool.deptry.package_module_name_map]
 mypy = "mypy"
-types-requests = "requests"
 
 [tool.deptry.per_rule_ignores]
 DEP002 = [
   "deptry",
   "mypy",
+  "requests",
 ]
 
 [tool.pytest.ini_options]
