@@ -15,10 +15,6 @@ updates:
       prefix: "feat(deps): "
       prefix-development: "chore(deps-dev): "
     versioning-strategy: increase-if-necessary
-    groups:
-      singer-sdk:
-        patterns:
-          - "singer-sdk*"
   - package-ecosystem: pip
     directory: "/.github/workflows"
     schedule:
