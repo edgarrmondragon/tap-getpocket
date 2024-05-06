@@ -28,7 +28,7 @@ classifiers = [
 ]
 dependencies = [
   "requests",
-  "requests>=2.26.0",
+  "requests>=2.26",
   "singer-sdk~=0.37.0",
 ]
 optional-dependencies.testing = [
