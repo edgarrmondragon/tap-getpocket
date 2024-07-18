@@ -34,6 +34,9 @@ dependencies = [
   "requests>=2.26",
   "singer-sdk~=0.38.0",
 ]
+optional-dependencies.dev = [
+  "tap-getpocket[testing,typing]",
+]
 optional-dependencies.testing = [
   "deptry",
   "singer-sdk[testing]",
@@ -105,6 +108,7 @@ lint.pydocstyle.convention = "google"
 
 [tool.deptry.package_module_name_map]
 mypy = "mypy"
+tap-getpocket = "tap_getpocket"
 
 [tool.deptry.per_rule_ignores]
 DEP002 = [

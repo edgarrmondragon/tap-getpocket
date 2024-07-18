@@ -136,7 +136,7 @@ class Items(PocketStream):
         def _get_favorite_state(favorite: bool | None) -> int | None:
             return None if favorite is None else int(favorite)
 
-        return {
+        payload = {
             "consumer_key": self.config["consumer_key"],
             "access_token": self.config["access_token"],
             "since": start_timestamp,
@@ -145,10 +145,18 @@ class Items(PocketStream):
             "sort": "oldest",
             "detailType": "complete",
             "state": self.config.get("state"),
-            "tag": self.config.get("tag"),
-            "contentType": self.config.get("content_type"),
-            "favorite": _get_favorite_state(self.config.get("favorite")),
         }
+
+        if tag := self.config.get("tag"):
+            payload["tag"] = tag
+
+        if content_type := self.config.get("content_type"):
+            payload["contentType"] = content_type
+
+        if favorite := self.config.get("favorite"):
+            payload["favorite"] = _get_favorite_state(favorite)
+
+        return payload
 
     def post_process(
         self,
