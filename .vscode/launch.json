@@ -6,19 +6,19 @@
     "configurations": [
         {
             "name": "tap-getpocket",
-            "type": "python",
+            "type": "debugpy",
             "request": "launch",
             "cwd": "${workspaceFolder}",
             "program": "tap_getpocket",
             "justMyCode": false,
             "args": [
-                "--config",
-                ".secrets/config.json",
+                "--config=.secrets/config.json",
+                "--config=ENV",
             ],
         },
         {
             "name": "Custom catalog",
-            "type": "python",
+            "type": "debugpy",
             "request": "launch",
             "cwd": "${workspaceFolder}",
             "program": "tap_getpocket",

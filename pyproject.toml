@@ -34,6 +34,9 @@ dependencies = [
   "requests>=2.26",
   "singer-sdk~=0.38.0",
 ]
+optional-dependencies.dev = [
+  "tap-getpocket[testing,typing]",
+]
 optional-dependencies.testing = [
   "deptry",
   "singer-sdk[testing]",
