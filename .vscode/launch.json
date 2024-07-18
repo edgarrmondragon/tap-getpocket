@@ -12,8 +12,19 @@
             "program": "tap_getpocket",
             "justMyCode": false,
             "args": [
-                "--config=.secrets/config.json",
                 "--config=ENV",
+            ],
+        },
+        {
+            "name": "Custom state",
+            "type": "debugpy",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "program": "tap_getpocket",
+            "justMyCode": false,
+            "args": [
+                "--config=ENV",
+                "--state=state.json",
             ],
         },
         {
@@ -24,10 +35,8 @@
             "program": "tap_getpocket",
             "justMyCode": false,
             "args": [
-                "--config",
-                "ENV",
-                "--catalog",
-                "catalog.json",
+                "--config=ENV",
+                "--catalog=catalog.json",
             ],
         }
     ]

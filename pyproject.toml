@@ -108,6 +108,7 @@ lint.pydocstyle.convention = "google"
 
 [tool.deptry.package_module_name_map]
 mypy = "mypy"
+tap-getpocket = "tap_getpocket"
 
 [tool.deptry.per_rule_ignores]
 DEP002 = [
