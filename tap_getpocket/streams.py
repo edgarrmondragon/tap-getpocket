@@ -164,8 +164,8 @@ class Items(PocketStream):
     def post_process(
         self,
         row: Record,
-        _: Record | None = None,
-    ) -> dict[str, t.Any] | None:
+        _: Context | None = None,
+    ) -> Record | None:
         """Clean and massage the record.
 
         Args:
