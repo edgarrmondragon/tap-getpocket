@@ -8,6 +8,9 @@ from singer_sdk import typing as th  # JSON Schema typing helpers
 
 from tap_getpocket.client import PocketStream
 
+if t.TYPE_CHECKING:
+    from singer_sdk.helpers.types import Context, Record
+
 String = th.StringType
 Integer = th.IntegerType
 Object = th.ObjectType
@@ -118,7 +121,7 @@ class Items(PocketStream):
 
     def prepare_request_payload(
         self,
-        context: dict[t.Any, t.Any] | None,
+        context: Context | None,
         next_page_token: int | None,
     ) -> dict[t.Any, t.Any] | None:
         """Construct and return request body for HTTP request.
@@ -160,8 +163,8 @@ class Items(PocketStream):
 
     def post_process(
         self,
-        row: dict[str, t.Any],
-        _: dict[t.Any, t.Any] | None = None,
+        row: Record,
+        _: Record | None = None,
     ) -> dict[str, t.Any] | None:
         """Clean and massage the record.
 
