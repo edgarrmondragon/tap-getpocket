@@ -119,6 +119,9 @@ DEP002 = [
   "requests",
 ]
 
+[tool.pyproject-fmt]
+max_supported_python = "3.13"
+
 [tool.pytest.ini_options]
 addopts = "-vvv"
 
@@ -127,6 +130,3 @@ python_version = "3.12"
 warn_redundant_casts = true
 warn_unused_configs = true
 warn_unused_ignores = true
-
-[tool.pyproject-fmt]
-max_supported_python = "3.13"
