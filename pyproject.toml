@@ -29,6 +29,7 @@ classifiers = [
   "Programming Language :: Python :: 3.10",
   "Programming Language :: Python :: 3.11",
   "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
 ]
 dependencies = [
   "requests>=2.26",
@@ -70,6 +71,7 @@ python = [
   "3.10",
   "3.11",
   "3.12",
+  "3.13",
 ]
 
 [tool.hatch.envs.typing]
@@ -121,7 +123,10 @@ DEP002 = [
 addopts = "-vvv"
 
 [tool.mypy]
-python_version = "3.11"
+python_version = "3.12"
 warn_redundant_casts = true
 warn_unused_configs = true
 warn_unused_ignores = true
+
+[tool.pyproject-fmt]
+max_supported_python = "3.13"
