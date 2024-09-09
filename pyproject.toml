@@ -7,7 +7,7 @@ requires = [
 [project]
 name = "tap-getpocket"
 version = "0.0.1"
-description = "`tap-getpocket` is a Singer tap for Pocket, built with the Meltano SDK for Singer Taps."
+description = "Singer tap for Pocket, built with the Meltano SDK for Singer Taps."
 readme = "README.md"
 keywords = [
   "ELT",
