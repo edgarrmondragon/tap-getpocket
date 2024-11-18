@@ -32,7 +32,7 @@ classifiers = [
 ]
 dependencies = [
   "requests>=2.26",
-  "singer-sdk~=0.41.0",
+  "singer-sdk~=0.42.1",
 ]
 optional-dependencies.dev = [
   "tap-getpocket[testing,typing]",
