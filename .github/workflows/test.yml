@@ -29,6 +29,7 @@ jobs:
       PIP_CONSTRAINT: ${{ github.workspace }}/.github/workflows/constraints.txt
     strategy:
       fail-fast: false
+      max-parallel: 2
       matrix:
         script: ["test:integration"]
         python-version:
