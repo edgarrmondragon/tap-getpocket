@@ -136,7 +136,7 @@ class Items(PocketStream):
         start_timestamp = self.get_starting_replication_key_value(context)
         self.logger.debug("Initial timestamp: %s", start_timestamp)
 
-        def _get_favorite_state(favorite: bool | None) -> int | None:
+        def _get_favorite_state(favorite: bool | None) -> int | None:  # noqa: FBT001
             return None if favorite is None else int(favorite)
 
         payload = {
